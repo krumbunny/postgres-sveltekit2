@@ -32,7 +32,7 @@
 				Fetched {users.length} users in {duration ? duration : 'unknown'} ms
 			</p>
 		</div>
-		<button on:click={refreshPage}>Refresh Page</button>
+		<button on:click={refreshPage}>Try Again</button>
 	</div>
 	<div class="divide-y divide-gray-900/5">
 		{#each users as user (user.id)}
@@ -48,6 +48,7 @@
 					<div class="space-y-1">
 						<p class="font-medium leading-none">{user.name}</p>
 						<p class="text-sm text-gray-500">{user.email}</p>
+						<p class="text-sm text-gray-500">{user.id}</p>
 					</div>
 				</div>
 				<p class="text-sm text-gray-500">{timeAgo(user.createdAt)}</p>
