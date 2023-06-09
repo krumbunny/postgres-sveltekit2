@@ -48,7 +48,6 @@
 					<div class="space-y-1">
 						<p class="font-medium leading-none">{user.name}</p>
 						<p class="text-sm text-gray-500">{user.email}</p>
-						<p class="text-sm text-gray-500">{user.id}</p>
 					</div>
 				</div>
 				<p class="text-sm text-gray-500">{timeAgo(user.createdAt)}</p>

@@ -1,6 +1,8 @@
 import { createPool } from '@vercel/postgres';
 import { sql } from "@vercel/postgres";
 
+import { PrismaClient } from '@prisma/client'
+
 async function seed() {
   const createTable = await sql`
     CREATE TABLE IF NOT EXISTS users (
@@ -42,9 +44,10 @@ async function seed() {
 export async function load() {
 	const db = createPool();
   const startTime = Date.now();
+  const prisma = new PrismaClient()
 
   try {
-		const { rows: users } = await db.query('SELECT * FROM users');
+    const users = await prisma.users.findMany()
 		const duration = Date.now() - startTime;
 		return {
 			users: users,
